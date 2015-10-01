@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<title>Spring Boot with AngularJS Demo</title>
+<link href="css/my-angular-bootstrap.css" rel="stylesheet">
+<style type="text/css">
+[ng\:cloak], [ng-cloak], .ng-cloak {
+	display: none !important;
+}
+</style>
+</head>
+
+<!-- 
+	The "ng-cloak" class is applied to the content <div> so that dynamic content is hidden until Angular JS 
+	has had a chance to process it (this prevents "flickering" during the initial page load). 
+-->
+
+<body ng-app="app" ng-cloak class="ng-cloak">
+
+	<div ng-controller="navigation" class="container">
+		<ul class="nav nav-pills" role="tablist">
+			<li class="active"><a href="#/">home</a></li>
+			<li ng-show="!authenticated"><a href="#/login">login</a></li>
+			<li ng-show="authenticated"><a href="" ng-click="logout()">logout</a></li>
+		</ul>
+	</div>
+
+	<div ng-view class="container"></div>
+
+	<script src="js/my-angular-bootstrap.js" type="text/javascript"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
